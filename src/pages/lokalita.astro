@@ -1,0 +1,55 @@
+---
+import { Image } from "astro:assets";
+import Shadow from "../components/Shadow.astro";
+import Layout from "../layouts/Layout.astro";
+import { LOKALITA_HERO, LOKALITA_CARDS } from "../data/lokalita";
+import exterier1 from "../assets/images/exterier1.webp";
+
+const { title, text } = LOKALITA_HERO;
+---
+
+<Layout title="">
+	<div class="py-10">
+		<Shadow background="black">
+			<div
+				class="flex flex-col md:flex-row items-center justify-center gap-12 px-6 py-12 md:px-12 md:py-12"
+			>
+				<div
+					class="flex-1 flex flex-col items-center md:items-start text-center md:text-start justify-between gap-6"
+				>
+					<h1 class="text-white text-4xl md:text-5xl font-medium">
+						{title}
+					</h1>
+					<p class="text-white text-xl font-normal">
+						{text}
+					</p>
+				</div>
+				<div class="flex-1">
+					<Image
+						src={exterier1}
+						alt={""}
+						width={500}
+						height={320}
+						class="rounded-xl object-center object-cover"
+					/>
+				</div>
+			</div>
+		</Shadow>
+	</div>
+	<div
+		class="py-10 container grid grid-cols-1 md:grid-cols-lokalita grid-flow-row gap-x-10 gap-y-8 place-content-center place-items-start"
+	>
+		{
+			LOKALITA_CARDS.map((item) => (
+				<Shadow key={item.id}>
+					<div class="px-8 py-12 flex flex-col items-start justify-center gap-6 max-w-[520px] h-full odd:row-span-2">
+						<h3 class="text-2xl md:text-3xl font-bold">
+							{item.title}
+						</h3>
+						<p class="text-xl font-normal">{item.text}</p>
+					</div>
+				</Shadow>
+			))
+		}
+	</div>
+</Layout>

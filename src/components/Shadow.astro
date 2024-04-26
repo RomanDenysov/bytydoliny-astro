@@ -1,0 +1,14 @@
+---
+interface Components {
+	background?: "black" | "gray";
+	stylesh?: string;
+}
+
+const { background = "background", stylesh } = Astro.props as Components;
+---
+
+<div
+	class={`min-w-[350px] w-fit rounded-2xl shadow-sh z-10 bg-${background} ${stylesh}`}
+>
+	<slot />
+</div>

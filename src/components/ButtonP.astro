@@ -1,0 +1,59 @@
+---
+interface Props {
+	title: string;
+	titleAlt?: string;
+	href: string;
+	secondary?: boolean;
+	short?: boolean;
+	blank?: boolean;
+	small?: boolean;
+}
+
+const { title, href, secondary, titleAlt, short, blank, small } = Astro.props;
+
+const smallerText = (): string => {
+	if (!titleAlt) {
+		return "inline-block";
+	}
+
+	return "hidden md:inline-block";
+};
+const textColor = secondary ? "text-black" : "text-primary";
+
+const buttonSize = (): string => {
+	if (short) {
+		return "max-w-fit";
+	}
+	if (small) {
+		return "max-w-[250px]";
+	}
+	return "max-w-full md:max-w-[350px]";
+};
+
+const blankTarget = blank ? "_blank" : "_self";
+---
+
+<a
+	data-message=`Button with title: ${title} and forward to: ${href}`
+	href={href}
+	target={blankTarget}
+	class=`group ${buttonSize()} w-full h-full max-h-[55px] border-4 border-primary bg-transparent rounded-2xl py-2 px-2 sm:px-6 sm:py-2 hover:bg-primary transition ease-in-out delay-150`
+>
+	<button
+		aria-label=`Button with title: ${title.toLowerCase()} and forward to page with URL: ${href}`
+		tabindex="1"
+		class="w-full h-full flex items-center justify-center text-center font-sans font-semibold text-lg transition ease-in-out delay-150"
+	>
+		<span
+			class=`${smallerText()} ${textColor} truncate w-full group-hover:text-black transition ease-in-out delay-150`
+			>{title}</span
+		>
+		{
+			titleAlt && (
+				<span class="w-full md:hidden text-sm sm:text-base md:text-lg">
+					{titleAlt}
+				</span>
+			)
+		}
+	</button>
+</a>

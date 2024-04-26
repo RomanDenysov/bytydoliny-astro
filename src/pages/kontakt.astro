@@ -1,0 +1,51 @@
+---
+import MailForm from "../components/MailForm.astro";
+import Shadow from "../components/Shadow.astro";
+import Layout from "../layouts/Layout.astro";
+import { KONTAKT_HERO, KONTAKT_CARDS } from "../data/kontakt";
+import {
+	TEL_CISLO,
+	TEL_LINK,
+	EMAIL,
+	ADDRESS,
+	ADDRESS_MAP,
+} from "../config/config";
+import ButtonP from "../components/ButtonP.astro";
+---
+
+<Layout title="">
+	<div class="py-10 mx-auto">
+		<Shadow background="black w-full">
+			<div
+				class="flex flex-col md:flex-row items-center justify-center px-6 py-12 md:px-12 md:py-12"
+			>
+				<div
+					class="flex flex-col items-center md:items-start md:text-start justify-between gap-6 mx-auto"
+				>
+					<h1
+						class="text-white text-4xl text-center lg:text-start md:text-5xl font-medium"
+					>
+						{KONTAKT_HERO.title}
+					</h1>
+					<p
+						class="text-white md:text-start text-center text-xl font-normal"
+					>
+						{KONTAKT_HERO.text}
+					</p>
+					<div
+						class="flex w-full flex-wrap items-center md:items-start justify-center md:justify-start gap-5"
+					>
+						<ButtonP title={TEL_CISLO} href={TEL_LINK} small />
+						<ButtonP title={EMAIL} href={`mailto:${EMAIL}`} small />
+						<ButtonP
+							title={ADDRESS}
+							href={ADDRESS_MAP}
+							blank
+							small
+						/>
+					</div>
+				</div>
+			</div>
+		</Shadow>
+	</div>
+</Layout>

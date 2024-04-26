@@ -1,0 +1,52 @@
+---
+import GridCards from "../components/GridCards.astro";
+import Shadow from "../components/Shadow.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="">
+	<div class="py-10">
+		<div
+			class="container mx-auto flex flex-col md:flex-row items-center justify-center gap-12"
+		>
+			<div class="flex-2">
+				<Shadow background="black">
+					<div
+						class="text-white rounded-xl text-center flex flex-col items-center justify-center gap-10 px-6 py-12 md:px-12 md:py-12"
+					>
+						<h1 class="text-white text-4xl md:text-5xl font-medium">
+							Aktuálna ponuka bytov v 1.etape
+						</h1>
+						<div
+							class="text-white text-xl font-normal flex flex-col items-center justify-center gap-2 transition ease-in-out delay-300"
+						>
+							<span
+								class="text-primary hover:underline transition delay-150"
+								>V 1. etape projektu zostáva voľných už len
+								polovica bytov.</span
+							>
+							<p>
+								Vyberte si z ponuky bytov v projekte Byty Doliny
+								a kontaktujte nášho makléra. Stále máte možnosť
+								prioritnej rezervácie Vami zvoleného bytu a
+								parkovacieho miesta.
+							</p>
+							<span
+								class="text-primary hover:underline transition ease-in-out delay-300"
+								>Táto ponuka je časovo obmedzená.</span
+							>
+						</div>
+					</div>
+				</Shadow>
+			</div>
+			<div class="flex-1">
+				<Shadow>
+					<div class="p-4 rounded-xl">
+						<h2 class="text-2xl font-bold">Hello, World!</h2>
+					</div>
+				</Shadow>
+			</div>
+		</div>
+		<GridCards />
+	</div>
+</Layout>

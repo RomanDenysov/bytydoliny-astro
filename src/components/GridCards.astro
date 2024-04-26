@@ -1,0 +1,75 @@
+---
+import { Byty, filtertHint } from '../data/ponuka-bytov.ts';
+
+const filterButtons = ['Všetky byty','Iba garsoniéry', 'Iba 1,5 - izbové byty', 'Iba 2 - izbové byty', 'Iba 3 - izbové byty']
+
+---
+
+<section class="flex flex-col items-center justify-center">
+	<div
+        data-message={filtertHint} 
+        class="flex items-center py-16 px-8 gap-6"
+    >
+    <div aria-hidden="true" class="hidden">
+        <span aria-label="Rozdel filtracie pre ponuku bytov" >
+            filtertHint
+        </span>
+    </div>
+		<!-- filter buttons -->
+		{
+            filterButtons.map((button) => (
+                <button aria-label={`Filter: ${button.toLowerCase()}`}>{button}</button>
+            ))
+        }
+	</div>
+	<div
+        data-message="Byty v ponuke"
+		class="container grid place-items-center justify-between place-content-start grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4 relative"
+	>
+		{
+			Byty.map((item) => {
+
+                const {id, title1,title2, badges, hrefPDF, hrefPrice, styler } = item;
+                const PDF_BUTTON = "Pôdorys bytu";
+                const PRICE_BUTTON = "Vyžiadať cenu";
+                const DISABLE_PRICE_BUTTON = "Byt je rezervovaný";
+                
+                const priceButtonText = styler ? DISABLE_PRICE_BUTTON : PRICE_BUTTON;
+
+                const stylex = styler ? 'bg-black text-gray-100' : "bg-background text-black";
+
+                const badgeStyle = styler ?  'bg-accentDark text-gray-100' : 'bg-accentLight text-black';
+
+                const zindex = `z-[${id}]`;
+
+				return (
+					<div
+                        data-message=`Byt v ponuke: ${title1} ${title2}`
+                        class=`shadow-sh w-full h-fit flex flex-col items-start justify-between ${zindex} gap-6 px-5 py-12 rounded-xl ${stylex}` 
+                    >
+						<h3 class="text-2xl md:text-3xl font-bold" >
+                            {title1}
+                            <br>
+                            {title2}
+                        </h3>
+						<div class="flex flex-col items-start justify-center gap-2">
+                            {badges.map((badge)=> (
+                            <span aria-label={badge.toLowerCase()} class=`${badgeStyle} px-2 py-1 rounded-lg text-xl font-semibold cursor-pointer` >
+                                {badge}
+                            </span>
+                        ))}
+                        </div>
+						<div class="flex flex-col w-full items-center justify-between gap-4">
+							<a href={hrefPDF} aria-label={`Otvorit plan bytu ${title1.toLowerCase()} ${title2.toLowerCase()}`} target="_blank" data-message=`Open PDF for ${title1} ${title2}` >
+                                <button tabindex="1">{PDF_BUTTON}</button>
+                            </a>
+							<a href={hrefPrice} data-message=`Open form for PRICE asking for ${title1} ${title2}` >
+                                <button aria-label={`Vyziadat cenu bytu ${title1.toLowerCase()} ${title2.toLowerCase()}`} tabindex="1">{priceButtonText}</button>
+                            </a>
+						</div>
+					</div>
+				);
+			})
+		}
+	</div>
+</section>

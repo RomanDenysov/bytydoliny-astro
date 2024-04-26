@@ -1,0 +1,116 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
+import Shadow from "../components/Shadow.astro";
+import ButtonP from "../components/ButtonP.astro";
+import { Image } from "astro:assets";
+import exterier1 from "../assets/images/exterier1.webp";
+import scrollreveal from "scrollreveal";
+
+---
+
+<Layout title="Welcome to Astro.">
+	<div class="py-10">
+		<Shadow background="black">
+			<div
+				class="flex flex-col md:flex-row items-center justify-center gap-12 px-6 py-12 md:px-12 md:py-12"
+			>
+				<div
+					class="flex-1 flex flex-col items-center md:items-start text-center md:text-start justify-between gap-6"
+				>
+					<h1 class="text-white text-4xl md:text-5xl font-medium">
+						Nové moderné byty vo Veľkom Šariši
+					</h1>
+					<p class="text-white text-xl font-normal">
+						Pripravujeme pre vás výstavbu bytov v centre Veľkého
+						Šariša v dvoch moderných pasívnych bytových domoch.
+					</p>
+					<ButtonP
+						href="/ponuka-bytov"
+						title="Pozrite si zoznam bytov"
+						secondary
+					/>
+				</div>
+				<div class="flex-1">
+					<Image
+						src={exterier1}
+						alt={""}
+						width={500}
+						height={320}
+						class="rounded-xl object-center object-cover"
+					/>
+				</div>
+			</div>
+		</Shadow>
+
+		<ul class="flex flex-col my-20 gap-12">
+			<li class="flex flex-col items-center gap-10">
+				<Shadow>
+					<Card
+						title="V 1. etape projektu zostáva voľná už len polovica bytov"
+						body="Vyberte si z ponuky bytov v projekte Byty Doliny a kontaktujte nášho makléra. Stále máte možnosť prioritnej rezervácie Vami zvoleného bytu v predpredaji."
+						button="Pozrite si zoznam bytov"
+						href="/ponuka-bytov"
+						background="gray"
+					/>
+				</Shadow>
+				<Shadow>
+					<Image
+					id={"image"}
+						src={exterier1}
+						alt={""}
+						width={500}
+						height={320}
+						class="rounded-xl object-center object-cover"
+					/>
+				</Shadow>
+			</li>
+			<li class="flex flex-col items-center gap-10">
+				<Shadow>
+					<Card
+						title="Lokalita"
+						body="Byty Doliny sa nachádzajú v meste Veľký Šariš, len 10 minút jazdy od Prešova. Na dosah ruky máte nevyhnutné služby a plnohodnotnú občiansku vybavenosť."
+						button="Viac o lokalite"
+						href="/lokalita"
+						background="gray"
+					/>
+				</Shadow>
+				<Shadow>
+					<Image
+						src={exterier1}
+						alt={""}
+						width={500}
+						height={320}
+						class="rounded-xl object-center object-cover"
+					/>
+				</Shadow>
+			</li>
+			<li class="flex flex-col items-center gap-10">
+				<Shadow>
+					<Card
+						title="Moderné technológie a nízke náklady"
+						body="Bytové domy v projekte Byty Doliny budú obsahovať moderné technológie - ohrev vody tepelnými čerpadlami, podlahové vykurovanie, lokálna rekuperácia, predpríprava na klimatizáciu a pod."
+						button="Pozrite si detailnú špecifikáciu"
+						href="/specifikacia-bytov"
+						background="gray"
+					/>
+				</Shadow>
+				<Shadow>
+					<Image
+						src={exterier1}
+						alt={""}
+						width={500}
+						height={320}
+						class="rounded-xl object-center object-cover"
+					/>
+				</Shadow>
+			</li>
+		</ul>
+	</div>
+</Layout>
+<script>
+	ScrollReveal.reveal("#image", {
+		duration: 60,
+		delay: 100,
+	});
+</script>

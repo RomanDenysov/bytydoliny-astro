@@ -1,0 +1,63 @@
+---
+import Shadow from "./Shadow.astro";
+import MailForm from "./MailForm.astro";
+import ButtonP from "./ButtonP.astro";
+import { Image } from "astro:assets";
+import exterier1 from "../assets/images/exterier1.webp";
+
+try {
+} catch (error) {}
+---
+
+<footer class="py-20" transition:persist>
+	<div class="container">
+		<div class="py-20 relative mb-60">
+			<div class="z-50">
+				<Shadow background="black">
+					<div
+						class="flex flex-col w-full items-center justify-between gap-10 max-w-[340px] px-5 py-12 md:px-12 text-white"
+					>
+						<h2 class="text-2xl text-start md:text-3xl font-medium">
+							Kontaktujte nášho makléra, v 1. etape projektu
+							zostáva voľných už len polovica bytov
+						</h2>
+						<p class="text-xl text-center font-normal">
+							Stále máte možnosť prioritnej rezervácie Vami
+							zvoleného bytu a parkovacieho miesta.
+						</p>
+						<ButtonP href="/docs" title="Odoslať dopyt" secondary />
+					</div>
+				</Shadow>
+			</div>
+			<div class="z-10 absolute top-1/2 right-0">
+				<Shadow>
+					<Image
+						src={exterier1}
+						alt="phone"
+						width={900}
+						height={780}
+						class={"rounded-xl object-cover object-center"}
+					/>
+				</Shadow>
+			</div>
+		</div>
+		<Shadow background="black">
+			<div
+				class="text-white flex flex-col items-center text-center justify-between gap-6 px-5 py-12 md:px-12 md:py-12"
+			>
+				<h2 class="text-2xl md:text-3xl font-medium">
+					Aktuálne informácie o projekte Byty Doliny do Vášho emailu
+				</h2>
+				<p class="text-xl font-normal">
+					Prihláste sa k odberu emailových notifikácií o stave
+					projektu a získavajte vždy najaktuálnejšie informácie.
+					Prihlásením svojho emailu súhlasíte s pravidlami ochrany
+					osobných údajov.
+				</p>
+				<MailForm />
+			</div>
+		</Shadow>
+
+		<!-- <p>© 2017 <a href="http://www.techno-soft.com" target="_blank">Techno-Soft</a> - All rights reserved</p> -->
+	</div>
+</footer>

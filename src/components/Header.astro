@@ -1,0 +1,35 @@
+---
+import { TEL_CISLO } from "../config/config";
+import { Icon } from "astro-icon/components";
+import Navbar from "./Navbar.astro";
+import ButtonP from "./ButtonP.astro";
+---
+
+<header
+	
+	class="h-20 z-50 w-full flex items-center justify-between px-2 my-auto sticky top-0 bg-background"
+>
+	<div class="flex-1 flex items-center justify-start">
+		<Navbar />
+	</div>
+	<div class="flex-1 flex items-center justify-center">
+		<a href="/" aria-label="Logo. Prejsť na úvodnú stránku" data-message="Logo. Prejsť na úvodnú stránku">
+			<Icon name="logo-sm" class={"md:hidden"} width={42} height={40} />
+			<Icon
+				name="logo-lg"
+				class={"hidden md:block"}
+				width={220}
+				height={38}
+			/>
+		</a>
+	</div>
+	<div class="flex-1 flex items-center justify-end" data-message=`Otázky? Zavolajte nám na +421 948 123 456 alebo napíšte na: ${TEL_CISLO}`>
+		<ButtonP
+			href="/kontakt"
+			title="Mám záujem o byt"
+			titleAlt="Mám záujem"
+			short
+			secondary
+		/>
+	</div>
+</header>
