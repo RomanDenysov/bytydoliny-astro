@@ -8,7 +8,8 @@ const filterButtons = ['Všetky byty','Iba garsoniéry', 'Iba 1,5 - izbové byty
 <section class="flex flex-col items-center justify-center">
 	<div
         data-message={filtertHint} 
-        class="flex items-center py-16 px-8 gap-6"
+        class="flex items-center flex-wrap justify-center py-16 px-8 gap-6"
+        id="shadow"
     >
     <div aria-hidden="true" class="hidden">
         <span aria-label="Rozdel filtracie pre ponuku bytov" >
@@ -18,7 +19,13 @@ const filterButtons = ['Všetky byty','Iba garsoniéry', 'Iba 1,5 - izbové byty
 		<!-- filter buttons -->
 		{
             filterButtons.map((button) => (
-                <button aria-label={`Filter: ${button.toLowerCase()}`}>{button}</button>
+                <button
+                class="group max-w-fit z-20 w-full h-full min-h-[55px] border-4 border-primary bg-transparent rounded-2xl hover:bg-primary whitespace-nowrap px-4 transition ease-in-out bg-background delay-75"
+                aria-label={`Filter: ${button.toLowerCase()}`}>
+                    <span class="w-full text-xl font-semibold text-center rounded-2xl transition ease-in-out bg-transparent hover:bg-primary delay-75">
+                        {button}
+                    </span>
+                </button>
             ))
         }
 	</div>
@@ -29,7 +36,7 @@ const filterButtons = ['Všetky byty','Iba garsoniéry', 'Iba 1,5 - izbové byty
 		{
 			Byty.map((item) => {
 
-                const {id, title1,title2, badges, hrefPDF, hrefPrice, styler } = item;
+                const {id, title1,title2, badges, hrefPDF, styler } = item;
                 const PDF_BUTTON = "Pôdorys bytu";
                 const PRICE_BUTTON = "Vyžiadať cenu";
                 const DISABLE_PRICE_BUTTON = "Byt je rezervovaný";
@@ -40,14 +47,20 @@ const filterButtons = ['Všetky byty','Iba garsoniéry', 'Iba 1,5 - izbové byty
 
                 const badgeStyle = styler ?  'bg-accentDark text-gray-100' : 'bg-accentLight text-black';
 
+                const hrefPrice = `/dopyt?byt=${encodeURIComponent(title1.toLocaleLowerCase().trim().replace(
+                    / /g,
+                    "-"
+                ))}&id=${id}`;
+
                 const zindex = `z-[${id}]`;
 
 				return (
 					<div
+                    id="shadow"
                         data-message=`Byt v ponuke: ${title1} ${title2}`
                         class=`shadow-sh w-full h-fit flex flex-col items-start justify-between ${zindex} gap-6 px-5 py-12 rounded-xl ${stylex}` 
                     >
-						<h3 class="text-2xl md:text-3xl font-bold" >
+						<h3 class="text-2xl font-spec md:text-3xl font-bold" >
                             {title1}
                             <br>
                             {title2}
@@ -59,12 +72,22 @@ const filterButtons = ['Všetky byty','Iba garsoniéry', 'Iba 1,5 - izbové byty
                             </span>
                         ))}
                         </div>
-						<div class="flex flex-col w-full items-center justify-between gap-4">
-							<a href={hrefPDF} aria-label={`Otvorit plan bytu ${title1.toLowerCase()} ${title2.toLowerCase()}`} target="_blank" data-message=`Open PDF for ${title1} ${title2}` >
-                                <button tabindex="1">{PDF_BUTTON}</button>
+						<div class="flex flex-col w-full items-center  justify-between gap-4">
+							<a 
+                                class="group max-w-full z-20 w-full h-full max-h-[55px] border-4 border-primary bg-transparent rounded-2xl py-2 px-2 sm:px-6 sm:py-2 hover:bg-primary transition ease-in-out bg-background delay-75"
+                                href={hrefPDF} aria-label={`Otvorit plan bytu ${title1.toLowerCase()} ${title2.toLowerCase()}`} target="_blank" data-message=`Open PDF for ${title1} ${title2}` >
+                                <button 
+                                class="w-full text-xl font-semibold text-center rounded-2xl transition ease-in-out bg-transparent hover:bg-primary delay-75"
+                                tabindex="1">{PDF_BUTTON}</button>
                             </a>
-							<a href={hrefPrice} data-message=`Open form for PRICE asking for ${title1} ${title2}` >
-                                <button aria-label={`Vyziadat cenu bytu ${title1.toLowerCase()} ${title2.toLowerCase()}`} tabindex="1">{priceButtonText}</button>
+							<a
+                            
+                            class=`group max-w-full z-20 w-full h-full max-h-[55px] border-4 ${styler ? "border-accentDark" : "border-primary"}  bg-transparent rounded-2xl py-2 px-2 sm:px-6 sm:py-2 ${styler ? "cursor-default" : "hover:bg-primary transition ease-in-out bg-background delay-75"}`
+                            href={hrefPrice} data-message=`Open form for PRICE asking for ${title1} ${title2}` >
+                                <button 
+                                class=`w-full ${styler ? "text-accentDark" : ""} text-xl font-semibold text-center rounded-2xl transition ease-in-out bg-transparent ${styler ? "" : "hover:bg-primary hover:text-gray-100 delay-75" }`
+                                disabled={styler}
+                                aria-label={`Vyziadat cenu bytu ${title1.toLowerCase()} ${title2.toLowerCase()}`} tabindex="1">{priceButtonText}</button>
                             </a>
 						</div>
 					</div>

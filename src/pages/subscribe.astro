@@ -1,0 +1,14 @@
+---
+export const prerender = true;
+import SubscribePage from "../components/SubscribePage";
+import NoStaffLayout from "../layouts/NoStaffLayout.astro";
+---
+
+<NoStaffLayout
+	title="Nové moderné byty vo Veľkom Šariši | Byty Doliny"
+	description="Štýlové nové byty vo Veľkom Šariši, pripravené na to, aby ste z nich urobili svoj domov. Objavte moderný komfort v atraktívnom prostredí."
+>
+	<section class="w-screen mx-auto h-screen relative font-sans bg-black">
+		<SubscribePage client:only />
+	</section>
+</NoStaffLayout>

@@ -1,0 +1,42 @@
+---
+
+---
+
+<div
+	id="modal"
+	class="fixed top-0 left-0 w-screen h-screen z-[100] flex items-center justify-center bg-black backdrop:black"
+>
+	<div
+		class="max-w-xl h-80 shadow-sh rounded-2xl px-6 py-12 flex flex-col items-center justify-between bg-background"
+	>
+		<h3 class="text-2xl md:text-3xl font-spec">Ďakujeme za Váš záujem</h3>
+		<p class="text-center text-xl">
+			Váš email sme pridali do našej databázy. Na Váš email odošleme
+			aktuálne informácie o ďalších fázach projektu.
+		</p>
+		<a
+			class="group px-6 border-4 border-primary font-bold rounded-2xl min-h-[55px] flex items-center justify-center hover:bg-primary hover:text-black transition duration-300 ease-in-out"
+			href="/"
+		>
+			<button onclick="removeModal()" class="text-xl font-bold text-black"
+				>Pokračovať na domovskú stránku
+			</button>
+		</a>
+	</div>
+</div>
+
+<script>
+	const modal = document?.querySelector("#modal");
+
+	const removeModal = () => {
+		modal?.classList.remove("flex");
+		modal?.classList.add("hidden");
+	};
+	function closeModal() {}
+	const timer = setTimeout(() => {
+		removeModal();
+	}, 5000);
+
+	clearTimeout(timer);
+	closeModal();
+</script>

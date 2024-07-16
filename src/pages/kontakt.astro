@@ -1,51 +1,131 @@
 ---
-import MailForm from "../components/MailForm.astro";
+export const prerender = true;
 import Shadow from "../components/Shadow.astro";
 import Layout from "../layouts/Layout.astro";
-import { KONTAKT_HERO, KONTAKT_CARDS } from "../data/kontakt";
+import { KONTAKT_HERO } from "../data/kontakt";
 import {
 	TEL_CISLO,
 	TEL_LINK,
 	EMAIL,
 	ADDRESS,
 	ADDRESS_MAP,
+	DEVELOPER,
 } from "../config/config";
 import ButtonP from "../components/ButtonP.astro";
+import Form from "@/components/Form";
 ---
 
-<Layout title="">
-	<div class="py-10 mx-auto">
-		<Shadow background="black w-full">
+<Layout
+	title="Kontakt - nové bývanie vo Veľkom Šariši | Byty Doliny"
+	description="Chcete dostávať novinky o bytoch Doliny medzi prvými? Máte záujem o bližšie informácie? Neváhajte sa na nás obrátiť s akýmikoľvek otázkami či požiadavkami."
+>
+	<div class="pt-10 mx-auto">
+		<Shadow
+			background="black"
+			stylesh=" w-full mx-auto max-w-[1100px] flex flex-col md:flex-row items-center justify-center px-5 py-12 md:px-12 md:py-12"
+		>
 			<div
-				class="flex flex-col md:flex-row items-center justify-center px-6 py-12 md:px-12 md:py-12"
+				class="flex flex-col items-center md:items-start md:text-start justify-between gap-6 mx-auto"
 			>
-				<div
-					class="flex flex-col items-center md:items-start md:text-start justify-between gap-6 mx-auto"
+				<h1
+					class="text-white font-spec text-4xl text-center lg:text-start md:text-5xl font-semibold"
 				>
-					<h1
-						class="text-white text-4xl text-center lg:text-start md:text-5xl font-medium"
-					>
-						{KONTAKT_HERO.title}
-					</h1>
-					<p
-						class="text-white md:text-start text-center text-xl font-normal"
-					>
-						{KONTAKT_HERO.text}
-					</p>
-					<div
-						class="flex w-full flex-wrap items-center md:items-start justify-center md:justify-start gap-5"
-					>
-						<ButtonP title={TEL_CISLO} href={TEL_LINK} small />
-						<ButtonP title={EMAIL} href={`mailto:${EMAIL}`} small />
-						<ButtonP
-							title={ADDRESS}
-							href={ADDRESS_MAP}
-							blank
-							small
-						/>
-					</div>
+					{KONTAKT_HERO.title}
+				</h1>
+				<p
+					class="text-white md:text-start text-center text-xl font-normal"
+				>
+					{KONTAKT_HERO.text}
+				</p>
+				<div
+					class="flex w-full flex-wrap items-center md:items-start justify-center md:justify-start gap-5"
+				>
+					<ButtonP title={TEL_CISLO} href={TEL_LINK} small />
+					<ButtonP title={EMAIL} href={`mailto:${EMAIL}`} small />
+					<ButtonP title={ADDRESS} href={ADDRESS_MAP} blank small />
 				</div>
 			</div>
 		</Shadow>
+
+		<ul
+			class="flex max-screen-lg flex-col items-center justify-between sm:mt-20 py-20 gap-12 sm:gap-40"
+		>
+			<li
+				class="flex max-w-full flex-col-reverse sm:flex-row items-center justify-center gap-5 sm:gap-[-150px] relative"
+			>
+				<div
+					id="shadow"
+					class="mt-0 sm:mt-[100px] md:mt-[150px] z-10 max-w-[800px] w-full"
+				>
+					<img
+						src="/images/byt-a.webp"
+						alt=""
+						class="shadow-sh z-10 rounded-xl aspect-video h-full object-cover object-center"
+					/>
+				</div>
+				<div
+					id="shadow"
+					class="mt-0 ml-0 sm:mt-[-100px] md:mt-[-150px] sm:ml-[-150px] bg-background z-20 shadow-sh py-12 px-6 rounded-xl max-w-full sm:max-w-[350px] md:max-w-[370px] w-full h-full"
+				>
+					<div class="flex z-20 flex-col items-start justify-center">
+						<h3
+							class="text-2xl font-spec md:text-3xl font-semibold mb-8"
+						>
+							Aktuálne informácie
+						</h3>
+						<p class="text-xl z-20 font-normal mb-12">
+							Prihláste sa do nášho zoznamu a získate informácie o
+							tomto projekte výstavby bytových domov vo Veľkom
+							Šariši medzi prvými. Prihlásením súhlasíte s
+							podmienkami
+							<a href="/gdpr" class="text-primary"
+								>ochrany osobných údajov</a
+							>.
+						</p>
+						<Form client:load />
+					</div>
+				</div>
+			</li>
+			<li
+				class="flex max-w-full flex-col sm:flex-row items-center justify-center gap-5 sm:gap-[-150px] relative"
+			>
+				<div
+					id="shadow"
+					class="mt-0 sm:mt-[-100px] md:mt-[-150px] bg-black z-20 shadow-sh py-12 px-6 rounded-xl max-w-full sm:max-w-[350px] md:max-w-[370px] w-full h-full"
+				>
+					<div
+						class="flex z-20 text-white flex-col items-start justify-center"
+					>
+						<h3
+							class="text-2xl font-spec md:text-3xl font-medium mb-8"
+						>
+							Developer
+						</h3>
+						<p class="text-xl z-20 font-normal mb-12">
+							Výstavbu bytových domov zabezpečuje stavebná
+							spoločnosť ČECH, s.r.o. Firma je generálnym
+							dodávateľom pozemných stavieb. Postavila už viac ako
+							18 000 m2 podlahovej plochy bytov.
+						</p>
+						<ButtonP
+							href={`https://${DEVELOPER}`}
+							blank
+							title={DEVELOPER}
+							bg
+						/>
+					</div>
+				</div>
+				<div
+					id="shadow"
+					class="sm:mt-[100px] md:mt-[150px] ml-0 sm:ml-[-150px] z-10 max-w-[800px] w-full"
+				>
+					<img
+						src="/images/byt-b.webp"
+						alt=""
+						class="shadow-sh z-10 rounded-xl aspect-video h-full object-cover w-full object-center"
+					/>
+				</div>
+			</li>
+		</ul>
 	</div>
 </Layout>

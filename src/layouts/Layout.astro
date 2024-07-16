@@ -1,19 +1,20 @@
 ---
-import Header from "../components/Header.astro";
+import Header from "../components/Header";
 import Footer from "../components/Footer.astro";
-import ReactHeader from "../components/ReactHeader";
-import { ViewTransitions, fade, slide } from "astro:transitions";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 interface Props {
 	title: string;
 	description?: string;
+	showFooter?: boolean;
 }
 
-const { title, description } = Astro.props;
+const { title, description, showFooter = true } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en" transition:animate="none">
+<html lang="en">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description" />
@@ -21,54 +22,153 @@ const { title, description } = Astro.props;
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 
+		<!-- Google Tag Manager -->
+		<script>
+			(function (w, d, s, l, i) {
+				// @ts-ignore
+				w[l] = w[l] || [];
+				// @ts-ignore
+				w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+				var f = d.getElementsByTagName(s)[0],
+					j = d.createElement(s),
+					dl = l != "dataLayer" ? "&l=" + l : "";
+				// @ts-ignore
+				j.async = true;
+				// @ts-ignore
+				j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+				// @ts-ignore
+				f.parentNode.insertBefore(j, f);
+			})(window, document, "script", "dataLayer", "GTM-W5L5CVJX");
+		</script>
+		<!-- End Google Tag Manager -->
+		<!-- Meta Pixel Code -->
+		<script>
+			// @tslint:disable-next-line
+			// @ts-ignore
+			!(function (f: any, b: any, e: any, v: any, n: any, t: any, s: any) {
+				if (f.fbq) return;
+				n = f.fbq = function () {
+					n.callMethod
+						? n.callMethod.apply(n, arguments)
+						: n.queue.push(arguments);
+				};
+				if (!f._fbq) f._fbq = n;
+				n.push = n;
+				n.loaded = !0;
+				n.version = "2.0";
+				n.queue = [];
+				t = b.createElement(e);
+				t.async = !0;
+				t.src = v;
+				s = b.getElementsByTagName(e)[0];
+				s.parentNode.insertBefore(t, s);
+			})(
+				window,
+				document,
+				"script",
+				"https://connect.facebook.net/en_US/fbevents.js"
+			);
+			//@ts-ignore
+			fbq("init", "1797412090777657");
+			//@ts-ignore
+			fbq("track", "PageView");
+		</script>
+		<noscript
+			><img
+				height="1"
+				width="1"
+				style="display: none"
+				src="https://www.facebook.com/tr?id=1797412090777657&ev=PageView&noscript=1"
+			/></noscript
+		>
+		<!-- End Meta Pixel Code -->
+
 		<title>{title}</title>
 		<meta name="title" content={title} />
 		<meta name="description" content={description} />
-		<script
-			defer
-			src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"
+
+		<link rel="stylesheet" href="https://use.typekit.net/haq2tlc.css" />
+		<script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"
 		></script>
-		<ViewTransitions />
 	</head>
-	<body>
+	<body class="relative">
+		<!-- Google Tag Manager (noscript) -->
+		<noscript
+			><iframe
+				src="https://www.googletagmanager.com/ns.html?id=GTM-W5L5CVJX"
+				height="0"
+				width="0"
+				style="display:none;visibility:hidden"></iframe></noscript
+		>
+		<!-- End Google Tag Manager (noscript) -->
 		<main
-			transition:animate={fade({ duration: "0.4s" })}
 			class="bg-background antialiased w-full max-h-full font-sans relative"
 		>
-			<div class="container px-2 mx-auto relative">
-				<Header />
-				<!-- <ReactHeader client:load/> -->
+			<Header client:load />
+			<div
+				class="font-sans container max-w-screen-xl px-4 xl:px-0 mx-auto relative"
+			>
 				<slot />
-				<Footer />
+				{showFooter && <Footer />}
 			</div>
 		</main>
-	</body><!-- <style is:global>
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
-		background-size: 224px;
-	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
-	}
-</style> -->
+		<script>
+			const sr = ScrollReveal({
+				origin: "top",
+				distance: "50px",
+				duration: 800,
+				reset: false,
+			});
+
+			sr.reveal("#shadow", {
+				delay: 100,
+				interval: 200,
+			});
+		</script>
+		<style is:global>
+			@import url("https://use.typekit.net/haq2tlc.css");
+			@import url("https://p.typekit.net/p.css?s=1&k=haq2tlc&ht=tk&f=13726.13727.13728.13729.13730.13731.13732.13733.13734.13735.13736.13737.13738.13739.13740.13741.13842.13843.13844.13845.55419&a=1440345&app=typekit&e=css");
+			@font-face {
+				font-family: "Recoleta";
+				src:
+					url("/fonts/Recoleta-Medium.woff") format("woff"),
+					url("/fonts/Recoleta-Medium.woff2") format("woff2");
+				font-weight: normal;
+				font-style: normal;
+				font-display: swap;
+			}
+
+			@font-face {
+				font-family: "zwo-pro";
+				src: url("https://use.typekit.net/haq2tlc.css");
+				font-display: auto;
+				font-style: normal;
+				font-display: swap;
+			}
+			@font-face {
+				font-family: "ff-zwo-web-pro";
+				src:
+					url("https://use.typekit.net/af/cfeac4/00000000000000007735ab03/30/l?primer=838bd269479109fba1a2544f41d3c707ecb88ba4346ba2c51accc65b3439144d&fvd=n9&v=3")
+						format("woff2"),
+					url("https://use.typekit.net/af/cfeac4/00000000000000007735ab03/30/d?primer=838bd269479109fba1a2544f41d3c707ecb88ba4346ba2c51accc65b3439144d&fvd=n9&v=3")
+						format("woff"),
+					url("https://use.typekit.net/af/cfeac4/00000000000000007735ab03/30/a?primer=838bd269479109fba1a2544f41d3c707ecb88ba4346ba2c51accc65b3439144d&fvd=n9&v=3")
+						format("opentype");
+				font-display: auto;
+				font-style: normal;
+				font-weight: 900;
+				font-stretch: normal;
+			}
+
+			body {
+				font-family: "zwo-pro", sans-serif;
+			}
+
+			h1,
+			h2,
+			h3 {
+				font-family: "Recoleta", sans-serif;
+			}
+		</style>
+	</body>
 </html>

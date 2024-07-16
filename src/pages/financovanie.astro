@@ -1,24 +1,27 @@
 ---
+export const prerender = true;
 import Shadow from "../components/Shadow.astro";
 import Layout from "../layouts/Layout.astro";
 import { FINANCOVANIE_TITLE, FINANCOVANIE_STEPS } from "../data/financovanie";
 ---
 
-<Layout title="">
+<Layout
+	title="Zarezervujte si nový byt vo Veľkom Šariši | Byty Doliny"
+	description="Máte záujem o moderný byt v perfektnej lokalite? Rezervácia a financovanie prebiehajú v troch krokoch."
+>
 	<div class="py-10 mx-auto">
-		<Shadow background="black w-full">
+		<Shadow
+			background="black"
+			stylesh="flex mx-auto w-full max-w-[1100px] flex-col md:flex-row items-center justify-center px-6 py-12 md:px-12"
+		>
 			<div
-				class="flex flex-col md:flex-row items-center justify-center px-6 py-12 md:px-12 md:py-12"
+				class="flex flex-col items-center md:text-start justify-between gap-6 mx-auto"
 			>
-				<div
-					class="flex flex-col items-center md:text-start justify-between gap-6 mx-auto"
+				<h1
+					class="text-white font-spec text-4xl text-center md:text-5xl font-medium"
 				>
-					<h1
-						class="text-white text-4xl text-center md:text-5xl font-medium"
-					>
-						{FINANCOVANIE_TITLE}
-					</h1>
-				</div>
+					{FINANCOVANIE_TITLE}
+				</h1>
 			</div>
 		</Shadow>
 	</div>
@@ -28,18 +31,38 @@ import { FINANCOVANIE_TITLE, FINANCOVANIE_STEPS } from "../data/financovanie";
 		{
 			FINANCOVANIE_STEPS.map((item) => (
 				<Shadow stylesh="py-12 px-6 flex flex-col items-start justify-center gap-5">
-					<h3 class="font-bold text-2xl md:text-3xl">{item.title}</h3>
-					<p class="font-semibold text-xl bg-accentLight px-2 py-2 rounded-xl">
+					<h3 class="font-bold text-2xl font-spec md:text-3xl">
+						{item.title}
+					</h3>
+					<p
+						id="small-caps"
+						class="font-semibold text-xl bg-accentLight px-2 py-2 rounded-xl"
+					>
 						{item.text.toUpperCase()}
 					</p>
-                    {item.text1 && <p class="font-semibold text-xl bg-accentLight px-2 py-2 rounded-xl">
-                        {item.text1.toUpperCase()}
-                    </p>}
-                    {item.text2 && <p class="font-semibold text-xl bg-accentLight px-2 py-2 rounded-xl">
-                        {item.text2.toUpperCase()}
-                    </p>}
+					{item.text1 && (
+						<p
+							id="small-caps"
+							class="font-semibold text-xl bg-accentLight px-2 py-2 rounded-xl"
+						>
+							{item.text1.toUpperCase()}
+						</p>
+					)}
+					{item.text2 && (
+						<p
+							id="small-caps"
+							class="font-semibold text-xl bg-accentLight px-2 py-2 rounded-xl"
+						>
+							{item.text2.toUpperCase()}
+						</p>
+					)}
 				</Shadow>
 			))
 		}
 	</div>
 </Layout>
+<style>
+	#small-caps {
+		font-variant: all-small-caps;
+	}
+</style>

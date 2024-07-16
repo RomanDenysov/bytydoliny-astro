@@ -10,19 +10,20 @@ export const LOKALITA_CARDS = [
 		text: "Veľký Šariš ponúka základné služby, ako sú potraviny, lekáreň, pošta a ďalšie maloobchodné prevádzky, ktoré potrebujete na denné nákupy.",
 	},
 	{
-		id: 2,
-		title: "Výborná dostupnosť na diaľnicu",
-		text: "Z Veľkého Šariša môžete vyraziť na diaľnicu D1 smerom na Košice alebo Bratislavu. Cesta na diaľnici bude rýchla a bezproblémová. Do Košíc sa tak môžete dostať za približne 30 až 40 minút, v závislosti od rýchlosti jazdy a dopravných podmienok.",
+		id: 4,
+		title: "Šarišský hrad",
+		text: "Veľký Šariš je známy nielen pre svoje krásne prostredie, ale aj pre svoje historické dôležitosti. Jednou z kultúrnych atrakcií, ktorá pritahuje obyvateľov mesta i návštevníkov, je Šarišský hrad. Tento historický hrad má bohatú históriu a slúži ako významné kultúrne a historické miesto v regióne.",
 	},
+
 	{
 		id: 3,
 		title: "Cyklistický chodník",
 		text: "Hneď vedľa areálu bytových domov Doliny sa nachádza cyklistický chodník, čo predstavuje veľký benefit pre všetkých milovníkov cyklistiky a aktívneho životného štýlu.",
 	},
 	{
-		id: 4,
-		title: "Šarišský hrad",
-		text: "Veľký Šariš je známy nielen pre svoje krásne prostredie, ale aj pre svoje historické dôležitosti. Jednou z kultúrnych atrakcií, ktorá pritahuje obyvateľov mesta i návštevníkov, je Šarišský hrad. Tento historický hrad má bohatú históriu a slúži ako významné kultúrne a historické miesto v regióne.",
+		id: 2,
+		title: "Výborná dostupnosť na diaľnicu",
+		text: "Z Veľkého Šariša môžete vyraziť na diaľnicu D1 smerom na Košice alebo Bratislavu. Cesta na diaľnici bude rýchla a bezproblémová. Do Košíc sa tak môžete dostať za približne 30 až 40 minút, v závislosti od rýchlosti jazdy a dopravných podmienok.",
 	},
 	{
 		id: 5,

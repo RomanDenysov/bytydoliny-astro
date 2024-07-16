@@ -7,9 +7,11 @@ interface Props {
 	short?: boolean;
 	blank?: boolean;
 	small?: boolean;
+	bg?: boolean;
 }
 
-const { title, href, secondary, titleAlt, short, blank, small } = Astro.props;
+const { title, href, secondary, titleAlt, short, blank, small, bg } =
+	Astro.props;
 
 const smallerText = (): string => {
 	if (!titleAlt) {
@@ -34,23 +36,24 @@ const blankTarget = blank ? "_blank" : "_self";
 ---
 
 <a
+	id="button"
 	data-message=`Button with title: ${title} and forward to: ${href}`
 	href={href}
 	target={blankTarget}
-	class=`group ${buttonSize()} w-full h-full max-h-[55px] border-4 border-primary bg-transparent rounded-2xl py-2 px-2 sm:px-6 sm:py-2 hover:bg-primary transition ease-in-out delay-150`
+	class=`group ${buttonSize()} z-20 w-full h-full max-h-[55px] border-4 border-primary bg-transparent rounded-2xl py-2 px-2 sm:px-6 sm:py-2 hover:bg-primary transition ease-in-out bg-background delay-100 ${bg ? "bg-background" : "bg-transparent"}`
 >
 	<button
 		aria-label=`Button with title: ${title.toLowerCase()} and forward to page with URL: ${href}`
 		tabindex="1"
-		class="w-full h-full flex items-center justify-center text-center font-sans font-semibold text-lg transition ease-in-out delay-150"
+		class="w-full z-20 h-full flex items-center justify-center text-center font-sans font-semibold text-lg transition ease-in-out delay-75"
 	>
 		<span
-			class=`${smallerText()} ${textColor} truncate w-full group-hover:text-black transition ease-in-out delay-150`
+			class=`${smallerText()} z-20 ${textColor} truncate w-full group-hover:text-black transition ease-in-out delay-75`
 			>{title}</span
 		>
 		{
 			titleAlt && (
-				<span class="w-full md:hidden text-sm sm:text-base md:text-lg">
+				<span class="w-full z-20 md:hidden text-sm sm:text-base md:text-lg">
 					{titleAlt}
 				</span>
 			)

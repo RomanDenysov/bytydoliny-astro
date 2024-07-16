@@ -1,0 +1,60 @@
+---
+export const prerender = true;
+import Shadow from "../components/Shadow.astro";
+import Layout from "../layouts/Layout.astro";
+import Lightbox from "../components/Lightbox.tsx";
+import { FINANCOVANIE_TITLE, FINANCOVANIE_STEPS } from "../data/financovanie";
+
+const GALERIA_TITLE = "Fotogaléria";
+const GALERIA_PHOTOS = [
+  {id: 1, img: '/images/fotogaleria/p10.JPG', alt: 'Interier 10' },
+  {id: 2, img: '/images/fotogaleria/p11.JPG', alt: 'Interier 11' },
+  {id: 3, img: '/images/fotogaleria/p12.JPG', alt: 'Interier 12' },
+  {id: 4, img: '/images/fotogaleria/p1.JPG', alt: 'Interier 1' },
+  {id: 5, img: '/images/fotogaleria/p2.JPG', alt: 'Interier 2' },
+  {id: 6, img: '/images/fotogaleria/p3.JPG', alt: 'Interier 3' },
+  {id: 7, img: '/images/fotogaleria/p4.JPG', alt: 'Interier 4' },
+  {id: 8, img: '/images/fotogaleria/p5.JPG', alt: 'Interier 5' },
+  {id: 9, img: '/images/fotogaleria/p6.JPG', alt: 'Interier 6' },
+  {id: 10, img: '/images/fotogaleria/p7.JPG', alt: 'Interier 7' },
+  {id: 11, img: '/images/fotogaleria/p8.JPG', alt: 'Interier 8' },
+  {id: 12, img: '/images/fotogaleria/p9.JPG', alt: 'Interier 9' },
+]
+---
+
+<Layout
+	title="Fotogaléria | Byty Doliny"
+	description="Máte záujem o moderný byt v perfektnej lokalite? Rezervácia a financovanie prebiehajú v troch krokoch."
+  >
+	<div class="py-10 mx-auto">
+		<Shadow
+			background="black"
+			stylesh="flex mx-auto w-full max-w-[1100px] flex-col md:flex-row items-center justify-center px-6 py-12 md:px-12"
+		>
+			<div
+				class="flex flex-col items-center md:text-start justify-between gap-6 mx-auto"
+			>
+				<h1
+					class="text-white font-spec text-4xl text-center md:text-5xl font-medium"
+				>
+					{GALERIA_TITLE}
+				</h1>
+			</div>
+		</Shadow>
+    
+	</div>
+	<div class="relative  py-10 container max-w-[1100px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center justify-center gap-6">
+		{
+			GALERIA_PHOTOS.map((item) => (
+            <Lightbox client:load
+              item={item}/>
+			))
+		}
+	</div>
+</Layout>
+
+<style>
+	#small-caps {
+		font-variant: all-small-caps;
+	}
+</style>

@@ -10,7 +10,7 @@ export const FINANCOVANIE_STEPS = [
 	{
 		id: 2,
 		title: "Krok 2.",
-		text: "Zmluvu o budúcej kúpnej zmluve je potrebné podpísať najneskôr do 30.06.2024 a zaplatiť 1. časť kúpnej ceny v sume 20% z celkovej kúpnej ceny (mínus rezervačný depozit).",
+		text: "Zmluvu o budúcej kúpnej zmluve je potrebné podpísať najneskôr do 31.08.2024 a zaplatiť 1. časť kúpnej ceny v sume 20% z celkovej kúpnej ceny (mínus rezervačný depozit).",
 	},
 	{
 		id: 3,

@@ -1,52 +1,79 @@
 ---
-import GridCards from "../components/GridCards.astro";
+export const prerender = true;
+import ButtonP from "@/components/ButtonP.astro";
 import Shadow from "../components/Shadow.astro";
 import Layout from "../layouts/Layout.astro";
+import Apartmans from "@/components/Apartmans";
 ---
 
-<Layout title="">
-	<div class="py-10">
+<Layout
+	title="Nové moderné byty vo Veľkom Šariši | Byty Doliny"
+	description="Štýlové nové byty vo Veľkom Šariši, pripravené na to, aby ste z nich urobili svoj domov. Objavte moderný komfort v atraktívnom prostredí."
+>
+	<div class="py-10 mx-auto">
 		<div
-			class="container mx-auto flex flex-col md:flex-row items-center justify-center gap-12"
+			class="mx-auto max-w-screen-lg h-full flex flex-col md:flex-row items-center md:items-start justify-start md:justify-center gap-12"
 		>
-			<div class="flex-2">
-				<Shadow background="black">
-					<div
-						class="text-white rounded-xl text-center flex flex-col items-center justify-center gap-10 px-6 py-12 md:px-12 md:py-12"
+			<Shadow
+				background="black"
+				stylesh="flex-2 max-h-full md:min-h-[360px]  w-full h-full text-white rounded-xl text-center flex flex-col items-center justify-between px-6 py-12 md:px-12"
+			>
+				<h1
+					class="text-white font-spec text-3xl md:text-4xl font-medium"
+				>
+					Aktuálna ponuka bytov v 1.etape
+				</h1>
+				<div
+					class="text-white text-xl font-medium flex flex-col items-center justify-center gap-4 transition ease-in-out delay-300"
+				>
+					<span
+						class="text-primary hover:underline transition delay-150"
+						>V 1. etape projektu zostáva voľných už len polovica
+						bytov.</span
 					>
-						<h1 class="text-white text-4xl md:text-5xl font-medium">
-							Aktuálna ponuka bytov v 1.etape
-						</h1>
-						<div
-							class="text-white text-xl font-normal flex flex-col items-center justify-center gap-2 transition ease-in-out delay-300"
-						>
-							<span
-								class="text-primary hover:underline transition delay-150"
-								>V 1. etape projektu zostáva voľných už len
-								polovica bytov.</span
-							>
-							<p>
-								Vyberte si z ponuky bytov v projekte Byty Doliny
-								a kontaktujte nášho makléra. Stále máte možnosť
-								prioritnej rezervácie Vami zvoleného bytu a
-								parkovacieho miesta.
-							</p>
-							<span
-								class="text-primary hover:underline transition ease-in-out delay-300"
-								>Táto ponuka je časovo obmedzená.</span
-							>
-						</div>
-					</div>
-				</Shadow>
-			</div>
-			<div class="flex-1">
-				<Shadow>
-					<div class="p-4 rounded-xl">
-						<h2 class="text-2xl font-bold">Hello, World!</h2>
-					</div>
-				</Shadow>
-			</div>
+					<p class="text-xl font-medium">
+						Vyberte si z ponuky bytov v projekte Byty Doliny a
+						kontaktujte nášho makléra. Stále máte možnosť prioritnej
+						rezervácie Vami zvoleného bytu a parkovacieho miesta.
+					</p>
+					<span
+						class="text-primary hover:underline transition ease-in-out delay-300"
+						>Táto ponuka je časovo obmedzená.</span
+					>
+				</div>
+			</Shadow>
+			<Shadow
+				stylesh="flex-1 md:min-h-[360px] max-h-full h-full w-full px-6 py-12 rounded-xl flex flex-col items-center justify-between gap-5"
+			>
+				<h2
+					class="text-black font-spec text-3xl md:text-4xl font-bold mb-2"
+				>
+					Pôdorysy podlaží
+				</h2>
+				<div
+					class="flex flex-col items-center justify-center gap-5 w-full sm:w-3/4 md:w-full"
+				>
+					<ButtonP
+						href="/images/podorys-prizemia-N.jpg"
+						title="Pôdorys prízemia (parkovanie)"
+						secondary
+						blank
+					/>
+					<ButtonP
+						href="/images/podorys-1-N.jpg"
+						title="Pôdorys 1. poschodia"
+						secondary
+						blank
+					/>
+					<ButtonP
+						href="/images/podorys-2-N.jpg"
+						title="Pôdorys 2. poschodia"
+						secondary
+						blank
+					/>
+				</div>
+			</Shadow>
 		</div>
-		<GridCards />
 	</div>
+	<Apartmans client:only />
 </Layout>

@@ -1,116 +1,159 @@
 ---
+export const prerender = true;
 import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
 import Shadow from "../components/Shadow.astro";
 import ButtonP from "../components/ButtonP.astro";
 import { Image } from "astro:assets";
-import exterier1 from "../assets/images/exterier1.webp";
-import scrollreveal from "scrollreveal";
-
 ---
 
-<Layout title="Welcome to Astro.">
-	<div class="py-10">
-		<Shadow background="black">
+<Layout
+	title="Nové moderné byty vo Veľkom Šariši | Byty Doliny"
+	description="Štýlové nové byty vo Veľkom Šariši, pripravené na to, aby ste z nich urobili svoj domov. Objavte moderný komfort v atraktívnom prostredí."
+>
+	<div class="pt-10 mx-auto max-w-screen-xl">
+		<Shadow
+			background="black"
+			stylesh="mx-auto h-full max-h-full max-w-[1100px] flex flex-col md:flex-row items-center md:items-start gap-12 px-6 py-12 md:px-12"
+		>
 			<div
-				class="flex flex-col md:flex-row items-center justify-center gap-12 px-6 py-12 md:px-12 md:py-12"
+				class="w-full md:w-1/2 h-full md:h-max flex max-w-[350px] md:max-w-full flex-col items-start text-center md:text-start justify-between gap-6 xl:gap-12"
 			>
-				<div
-					class="flex-1 flex flex-col items-center md:items-start text-center md:text-start justify-between gap-6"
+				<h1
+					class="text-white font-spec text-4xl xl:text-5xl font-medium"
 				>
-					<h1 class="text-white text-4xl md:text-5xl font-medium">
-						Nové moderné byty vo Veľkom Šariši
-					</h1>
-					<p class="text-white text-xl font-normal">
-						Pripravujeme pre vás výstavbu bytov v centre Veľkého
-						Šariša v dvoch moderných pasívnych bytových domoch.
-					</p>
-					<ButtonP
-						href="/ponuka-bytov"
-						title="Pozrite si zoznam bytov"
-						secondary
-					/>
-				</div>
-				<div class="flex-1">
-					<Image
-						src={exterier1}
-						alt={""}
-						width={500}
-						height={320}
-						class="rounded-xl object-center object-cover"
-					/>
-				</div>
+					Nové moderné byty vo Veľkom Šariši
+				</h1>
+				<p class="text-white text-xl font-normal mb-4">
+					Pripravujeme pre vás výstavbu bytov v centre Veľkého Šariša
+					v dvoch moderných pasívnych bytových domoch.
+				</p>
+				<ButtonP href="/ponuka-bytov" title="Pozrite si zoznam bytov" />
 			</div>
+			<img
+				src={"/images/exterier1.webp"}
+				alt={"Nové moderné byty vo Veľkom Šariši"}
+				class="rounded-xl aspect-video object-center object-cover w-full md:w-1/2 h-full"
+			/>
 		</Shadow>
 
-		<ul class="flex flex-col my-20 gap-12">
-			<li class="flex flex-col items-center gap-10">
-				<Shadow>
-					<Card
-						title="V 1. etape projektu zostáva voľná už len polovica bytov"
-						body="Vyberte si z ponuky bytov v projekte Byty Doliny a kontaktujte nášho makléra. Stále máte možnosť prioritnej rezervácie Vami zvoleného bytu v predpredaji."
-						button="Pozrite si zoznam bytov"
-						href="/ponuka-bytov"
-						background="gray"
+		<ul
+			class="flex flex-col mx-auto max-w-screen-lg items-center justify-between sm:mt-20 py-20 gap-12 sm:gap-40"
+		>
+			<li
+				class="flex flex-col sm:flex-row items-center justify-center gap-12 sm:gap-5 relative"
+			>
+				<div
+					id="shadow"
+					class="mt-0 sm:mt-[-100px] md:mt-[-150px] bg-background z-20 shadow-sh py-12 px-6 rounded-xl max-w-full sm:max-w-[350px] md:max-w-[370px] w-full h-full"
+				>
+					<div class="flex z-20 flex-col items-start justify-center">
+						<h3
+							class="text-2xl font-spec md:text-3xl font-semibold mb-8"
+						>
+							V 1. etape projektu zostáva voľná už len polovica
+							bytov
+						</h3>
+						<p class="text-xl z-20 font-normal mb-12">
+							Vyberte si z ponuky bytov v projekte Byty Doliny a
+							kontaktujte nášho makléra. Stále máte možnosť
+							prioritnej rezervácie Vami zvoleného bytu v
+							predpredaji.
+						</p>
+						<ButtonP
+							href="/ponuka-bytov"
+							title="Pozrite si zoznam bytov"
+							bg
+							secondary
+						/>
+					</div>
+				</div>
+				<div
+					id="shadow"
+					class="mt-0 sm:mt-[100px] md:mt-[150px] ml-0 sm:ml-[-150px] z-10 max-w-[800px] w-full"
+				>
+					<img
+						src="/images/exterier2.webp"
+						alt=""
+						class="shadow-sh z-10 rounded-xl aspect-video h-full object-cover object-center"
 					/>
-				</Shadow>
-				<Shadow>
-					<Image
-					id={"image"}
-						src={exterier1}
-						alt={""}
-						width={500}
-						height={320}
-						class="rounded-xl object-center object-cover"
-					/>
-				</Shadow>
+				</div>
 			</li>
-			<li class="flex flex-col items-center gap-10">
-				<Shadow>
-					<Card
-						title="Lokalita"
-						body="Byty Doliny sa nachádzajú v meste Veľký Šariš, len 10 minút jazdy od Prešova. Na dosah ruky máte nevyhnutné služby a plnohodnotnú občiansku vybavenosť."
-						button="Viac o lokalite"
-						href="/lokalita"
-						background="gray"
+			<li
+				class="flex max-w-full flex-col-reverse sm:flex-row items-center justify-center gap-5 sm:gap-[-150px] relative"
+			>
+				<div
+					id="shadow"
+					class="mt-0 sm:mt-[100px] md:mt-[150px] z-10 max-w-[800px] w-full"
+				>
+					<img
+						src="/images/lokalita2.webp"
+						alt=""
+						class="shadow-sh z-10 rounded-xl aspect-video h-full object-cover object-center"
 					/>
-				</Shadow>
-				<Shadow>
-					<Image
-						src={exterier1}
-						alt={""}
-						width={500}
-						height={320}
-						class="rounded-xl object-center object-cover"
-					/>
-				</Shadow>
+				</div>
+				<div
+					id="shadow"
+					class="mt-0 ml-0 sm:mt-[-100px] md:mt-[-150px] sm:ml-[-150px] bg-background z-20 shadow-sh py-12 px-6 rounded-xl max-w-full sm:max-w-[350px] md:max-w-[370px] w-full h-full"
+				>
+					<div class="flex z-20 flex-col items-start justify-center">
+						<h3
+							class="text-2xl font-spec md:text-3xl font-semibold mb-8"
+						>
+							Lokalita
+						</h3>
+						<p class="text-xl z-20 font-normal mb-12">
+							Byty Doliny sa nachádzajú v meste Veľký Šariš, len
+							10 minút jazdy od Prešova. Na dosah ruky máte
+							nevyhnutné služby a plnohodnotnú občiansku
+							vybavenosť.
+						</p>
+						<ButtonP
+							href="/lokalita"
+							title="Viac o lokalite"
+							bg
+							secondary
+						/>
+					</div>
+				</div>
 			</li>
-			<li class="flex flex-col items-center gap-10">
-				<Shadow>
-					<Card
-						title="Moderné technológie a nízke náklady"
-						body="Bytové domy v projekte Byty Doliny budú obsahovať moderné technológie - ohrev vody tepelnými čerpadlami, podlahové vykurovanie, lokálna rekuperácia, predpríprava na klimatizáciu a pod."
-						button="Pozrite si detailnú špecifikáciu"
-						href="/specifikacia-bytov"
-						background="gray"
+			<li
+				class="flex max-w-full flex-col sm:flex-row items-center justify-center gap-5 sm:gap-[-150px] relative"
+			>
+				<div
+					id="shadow"
+					class="mt-0 sm:mt-[-100px] md:mt-[-150px] bg-background z-20 shadow-sh py-12 px-6 rounded-xl max-w-full sm:max-w-[350px] md:max-w-[370px] w-full h-full"
+				>
+					<div class="flex z-20 flex-col items-start justify-center">
+						<h3
+							class="text-2xl font-spec md:text-3xl font-semibold mb-8"
+						>
+							Moderné technológie a nízke náklady
+						</h3>
+						<p class="text-xl z-20 font-normal mb-12">
+							Bytové domy v projekte Byty Doliny budú obsahovať
+							moderné technológie - ohrev vody tepelnými
+							čerpadlami, podlahové vykurovanie, lokálna
+							rekuperácia, predpríprava na klimatizáciu a pod.
+						</p>
+						<ButtonP
+							href="/specifikacia-bytov"
+							title="Pozrite si detailnú špecifikáciu"
+							bg
+							secondary
+						/>
+					</div>
+				</div>
+				<div
+					id="shadow"
+					class="sm:mt-[100px] md:mt-[150px] ml-0 sm:ml-[-150px] z-10 max-w-[800px] w-full"
+				>
+					<img
+						src="/images/byt-b.webp"
+						alt=""
+						class="shadow-sh z-10 rounded-xl aspect-video h-full object-cover object-center"
 					/>
-				</Shadow>
-				<Shadow>
-					<Image
-						src={exterier1}
-						alt={""}
-						width={500}
-						height={320}
-						class="rounded-xl object-center object-cover"
-					/>
-				</Shadow>
+				</div>
 			</li>
 		</ul>
 	</div>
 </Layout>
-<script>
-	ScrollReveal.reveal("#image", {
-		duration: 60,
-		delay: 100,
-	});
-</script>

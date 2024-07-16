@@ -14,5 +14,6 @@ export const NAVBAR_ITEMS = [
 	{ id: 4, name: "Financovanie", link: "/financovanie" },
 	{ id: 5, name: "Harmonogram výstavby", link: "/harmonogram-vystavby" },
 	{ id: 6, name: "Ponuka bytov", link: "/ponuka-bytov" },
-	{ id: 7, name: "Kontakt", link: "/kontakt" },
+	{ id: 7, name: "Fotogaléria", link: "/fotogaleria" },
+	{ id: 8, name: "Kontakt", link: "/kontakt" },
 ];

@@ -1,4 +1,5 @@
 ---
+export const prerender = true;
 import Shadow from "../components/Shadow.astro";
 import Layout from "../layouts/Layout.astro";
 import {
@@ -7,21 +8,23 @@ import {
 } from "../data/specifikacie-bytov";
 ---
 
-<Layout title="">
+<Layout
+	title="Nové moderné byty vo Veľkom Šariši | Byty Doliny"
+	description="Štýlové nové byty vo Veľkom Šariši, pripravené na to, aby ste z nich urobili svoj domov. Objavte moderný komfort v atraktívnom prostredí."
+>
 	<div class="py-10 mx-auto">
-		<Shadow background="black w-full">
+		<Shadow
+			background="black"
+			stylesh="mx-auto max-w-[1100px] flex flex-col md:flex-row items-center justify-center px-6 py-12 md:px-12 md:py-12"
+		>
 			<div
-				class="flex flex-col md:flex-row items-center justify-center px-6 py-12 md:px-12 md:py-12"
+				class="flex flex-col items-centermd:text-start justify-between gap-6 mx-auto"
 			>
-				<div
-					class="flex flex-col items-centermd:text-start justify-between gap-6 mx-auto"
+				<h1
+					class="text-white text-4xl text-center md:text-5xl font-medium"
 				>
-					<h1
-						class="text-white text-4xl text-center md:text-5xl font-medium"
-					>
-						{SPECIFIKACIE_BYTOV_PAGE_TITLE}
-					</h1>
-				</div>
+					{SPECIFIKACIE_BYTOV_PAGE_TITLE}
+				</h1>
 			</div>
 		</Shadow>
 	</div>
@@ -35,7 +38,10 @@ import {
 					stylesh={"w-full py-12 px-6 flex flex-col gap-5"}
 				>
 					<h3 class="font-bold text-2xl md:text-3xl">{byt.title}</h3>
-					<span class="font-semibold text-xl bg-accentLight p-2 rounded-xl">
+					<span
+						id="small-caps"
+						class="font-semibold text-xl bg-accentLight p-2 rounded-xl"
+					>
 						{byt.body.toUpperCase()}
 					</span>
 					{byt.body1 && (
@@ -48,3 +54,8 @@ import {
 		}
 	</div>
 </Layout>
+<style>
+	#small-caps {
+		font-variant: all-small-caps;
+	}
+</style>

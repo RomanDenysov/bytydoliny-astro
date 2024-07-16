@@ -1,6 +1,4 @@
 ---
-import ButtonP from "./ButtonP.astro";
-import Shadow from "./Shadow.astro";
 
 interface Props {
 	title: string;
@@ -10,7 +8,7 @@ interface Props {
 	styler?: string | "";
 }
 
-const { href, title, button, body, styler } = Astro.props;
+const { title, body, styler } = Astro.props;
 
 const stylex: string =
 	styler === "black" ? "bg-black text-white" : "text-black";

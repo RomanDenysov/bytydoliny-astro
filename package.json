@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.5.10",
+    "@astrojs/node": "^8.2.5",
     "@astrojs/react": "^3.3.1",
     "@astrojs/tailwind": "^5.1.0",
     "@types/react": "^18.2.79",
@@ -18,13 +19,23 @@
     "astro": "^4.6.3",
     "astro-htmx": "^1.0.5",
     "astro-icon": "^1.1.0",
+    "astro-toast": "^1.1.4",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "emailjs-com": "^3.2.0",
+    "express": "^4.19.2",
+    "nodemailer": "^6.9.13",
     "react": "^18.3.0",
     "react-dom": "^18.3.0",
+    "react-toastify": "^10.0.5",
     "scrollreveal": "^4.0.9",
     "tailwindcss": "^3.4.3",
     "typescript": "^5.4.5"
   },
   "devDependencies": {
+    "@types/body-parser": "^1.19.5",
+    "@types/express": "^4.17.21",
+    "@types/nodemailer": "^6.4.14",
     "@types/scrollreveal": "^0.0.11"
   }
 }

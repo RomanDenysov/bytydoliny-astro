@@ -1,0 +1,153 @@
+---
+import Header from "../components/Header";
+import Footer from "../components/Footer.astro";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+interface Props {
+	title: string;
+	description?: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+
+		<title>{title}</title>
+		<meta name="title" content={title} />
+		<meta name="description" content={description} />
+
+		<!-- Google Tag Manager -->
+		<script>
+			(function (w, d, s, l, i) {
+				// @ts-ignore
+				w[l] = w[l] || [];
+				// @ts-ignore
+				w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+				var f = d.getElementsByTagName(s)[0],
+					j = d.createElement(s),
+					dl = l != "dataLayer" ? "&l=" + l : "";
+				// @ts-ignore
+				j.async = true;
+				// @ts-ignore
+				j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+				// @ts-ignore
+				f.parentNode.insertBefore(j, f);
+			})(window, document, "script", "dataLayer", "GTM-W5L5CVJX");
+		</script>
+		<!-- End Google Tag Manager -->
+		<!-- Meta Pixel Code -->
+		<script>
+			// @tslint:disable-next-line
+			// @ts-ignore
+			!(function (f: any, b: any, e: any, v: any, n: any, t: any, s: any) {
+				if (f.fbq) return;
+				n = f.fbq = function () {
+					n.callMethod
+						? n.callMethod.apply(n, arguments)
+						: n.queue.push(arguments);
+				};
+				if (!f._fbq) f._fbq = n;
+				n.push = n;
+				n.loaded = !0;
+				n.version = "2.0";
+				n.queue = [];
+				t = b.createElement(e);
+				t.async = !0;
+				t.src = v;
+				s = b.getElementsByTagName(e)[0];
+				s.parentNode.insertBefore(t, s);
+			})(
+				window,
+				document,
+				"script",
+				"https://connect.facebook.net/en_US/fbevents.js"
+			);
+			//@ts-ignore
+			fbq("init", "1797412090777657");
+			//@ts-ignore
+			fbq("track", "PageView");
+		</script>
+		<noscript
+			><img
+				height="1"
+				width="1"
+				style="display: none"
+				src="https://www.facebook.com/tr?id=1797412090777657&ev=PageView&noscript=1"
+			/></noscript
+		>
+		<!-- End Meta Pixel Code -->
+		<link rel="stylesheet" href="https://use.typekit.net/haq2tlc.css" />
+		<script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"
+		></script>
+	</head>
+	<body class="relative">
+		<!-- Google Tag Manager (noscript) -->
+		<noscript
+			><iframe
+				src="https://www.googletagmanager.com/ns.html?id=GTM-W5L5CVJX"
+				height="0"
+				width="0"
+				style="display:none;visibility:hidden"></iframe></noscript
+		>
+		<!-- End Google Tag Manager (noscript) -->
+		<main
+			class="bg-black antialiased w-full max-h-full h-full font-sans relative"
+		>
+			<div class="font-sans mx-auto h-full relative">
+				<slot />
+			</div>
+		</main>
+		<script>
+			const sr = ScrollReveal({
+				origin: "top",
+				distance: "50px",
+				duration: 800,
+				reset: false,
+			});
+
+			sr.reveal("#shadow", {
+				delay: 100,
+				interval: 200,
+			});
+		</script>
+		<style is:global>
+			@import url("https://use.typekit.net/haq2tlc.css");
+			@font-face {
+				font-family: "Recoleta";
+				src:
+					url("/fonts/Recoleta-Medium.woff") format("woff"),
+					url("/fonts/Recoleta-Medium.woff2") format("woff2");
+				font-weight: normal;
+				font-style: normal;
+				font-display: swap;
+			}
+
+			@font-face {
+				font-family: "zwo-pro";
+				src: url("https://use.typekit.net/haq2tlc.css");
+				font-display: auto;
+				font-style: normal;
+				font-display: swap;
+			}
+
+			body {
+				font-family: "zwo-pro", sans-serif;
+			}
+
+			h1,
+			h2,
+			h3 {
+				font-family: "Recoleta", sans-serif;
+			}
+		</style>
+	</body>
+</html>
