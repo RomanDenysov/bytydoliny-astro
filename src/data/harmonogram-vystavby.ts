@@ -9,28 +9,50 @@ export const HARMONOGRAM_PIKS = [
 			{
 				id: 1,
 				text: "Termín začatia výstavby: ",
-				date: "3.Q. 2024",
+				date: "3.Q.2024",
 			},
 			{
 				id: 2,
-				text: "hrubá stavba (zápis v katastri):",
-				date: "3.Q. 2025",
+				text: "hrubá stavba (zápis v katastri):",
+				date: "4.Q.2024",
 			},
 			{
 				id: 3,
 				text: "kolaudácia: ",
-				date: "4.Q. 2025",
+				date: "3.Q.2025",
 			},
 			{
 				id: 4,
 				text: "odovzdávanie bytov: ",
-				date: "1.Q. 2026",
+				date: "4.Q.2025",
 			},
 		],
 	},
 	{
 		id: 2,
 		title: "2. etapa",
-		descr: "pripravujeme",
+		descr: "16 mesiacov - 4.Q.2024 - 4.Q.2025",
+		piks: [
+			{
+				id: 1,
+				text: "Termín začatia výstavby: ",
+				date: "4.Q.2024",
+			},
+			{
+				id: 2,
+				text: "hrubá stavba:",
+				date: "3.Q.2025",
+			},
+			{
+				id: 3,
+				text: "kolaudácia: ",
+				date: "4.Q.2025",
+			},
+			{
+				id: 4,
+				text: "odovzdávanie bytov: ",
+				date: "1.Q.2026",
+			},
+		],
 	},
 ];

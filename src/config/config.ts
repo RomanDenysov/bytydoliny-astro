@@ -9,11 +9,11 @@ export const INSTAGRAM = "https://www.instagram.com/urbanreal.sk";
 
 export const NAVBAR_ITEMS = [
 	{ id: 1, name: "Domov", link: "/" },
-	{ id: 2, name: "Špecifikácia bytov", link: "/specifikacia-bytov" },
-	{ id: 3, name: "Lokalita", link: "/lokalita" },
-	{ id: 4, name: "Financovanie", link: "/financovanie" },
-	{ id: 5, name: "Harmonogram výstavby", link: "/harmonogram-vystavby" },
-	{ id: 6, name: "Ponuka bytov", link: "/ponuka-bytov" },
-	{ id: 7, name: "Fotogaléria", link: "/fotogaleria" },
+	{ id: 2, name: "Ponuka bytov", link: "/ponuka-bytov" },
+	{ id: 3, name: "Špecifikácia bytov", link: "/specifikacia-bytov" },
+	{ id: 4, name: "Fotogaléria", link: "/fotogaleria" },
+	{ id: 5, name: "Lokalita", link: "/lokalita" },
+	{ id: 6, name: "Harmonogram výstavby", link: "/harmonogram-vystavby" },
+	{ id: 7, name: "Financovanie", link: "/financovanie" },
 	{ id: 8, name: "Kontakt", link: "/kontakt" },
 ];
